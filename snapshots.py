@@ -57,12 +57,12 @@ class Backup(object):
 			self.DeleteSnap(snapshot.get('SnapshotId'), old_snapid)
 	
 		except:
-			print 'Snapshot created with ID', SnapshotId
-			print 'No old Snapshot Found !!'
+			print 'Snapshot created with ID', snapshot.get('SnapshotId')
+			print 'No old Snapshot Found or not deleting Snapshot for Best Practices!!'
 
 	def DeleteSnap(self, SnapshotId, old_snapid):
 			ec2.delete_snapshot(SnapshotId = str(old_snapid))
-			print 'New Snapshot created with ID', SnapshotId
+			print 'New Snapshot created with ID', SnapshotId, ', 2 Snapshots now exists for the volume!!'
 			print 'Old Snapshot with ID', old_snapid, 'is deleted'
 
 
