@@ -3,7 +3,7 @@
 import boto3
 import sys
 from operator import itemgetter
-
+from time import gmtime, strftime
 
 ec2 = boto3.client('ec2', region_name = 'ap-south-1')
 waiter = ec2.get_waiter('snapshot_completed')
@@ -57,12 +57,12 @@ class Backup(object):
 			self.DeleteSnap(snapshot.get('SnapshotId'), old_snapid)
 	
 		except:
-			print 'Snapshot created with ID', snapshot.get('SnapshotId')
+			print 'Snapshot created with ID', snapshot.get('SnapshotId'), 'at', strftime("%Y-%m-%d %H:%M:%S", gmtime())
 			print 'No old Snapshot Found or not deleting Snapshot for Best Practices!!'
 
 	def DeleteSnap(self, SnapshotId, old_snapid):
 			ec2.delete_snapshot(SnapshotId = str(old_snapid))
-			print 'New Snapshot created with ID', SnapshotId, ', 2 Snapshots now exists for the volume!!'
+			print 'New Snapshot created with ID', SnapshotId, 'at', strftime("%Y-%m-%d %H:%M:%S", gmtime()), ', 2 Snapshots now exists for the volume!!'
 			print 'Old Snapshot with ID', old_snapid, 'is deleted'
 
 
