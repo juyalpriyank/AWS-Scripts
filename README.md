@@ -8,4 +8,4 @@ Various AWS automation scripts. Example - Taking snapshots of EBS
 <br>"--snap_desc", help="Set description of the snapshot"</br>
 
 <br>#Takes snapshot of the AWS EBS Volume</br>
-<br>#Keeps 2 snapshots reserved and deletes the oldest one.</br>
+<br>#Keeps 5 snapshots reserved and deletes the oldest one.</br>
