@@ -35,8 +35,8 @@ class Backup(object):
 				])
             snapshots = old_snapshot['Snapshots']
             sortedsnap = sorted(snapshots, key = itemgetter('StartTime'), reverse = True)
-            old_snapid = sortedsnap[1]['SnapshotId']
-            print ('Old Snapshot Id'), old_snapid
+            old_snapid = sortedsnap[4]['SnapshotId']
+            print ('Oldest Snapshot Id'), old_snapid
         
         except Exception as e:
             pass
@@ -71,8 +71,8 @@ class Backup(object):
             
     def DeleteSnap(self, SnapshotId, old_snapid):
         ec2.delete_snapshot(SnapshotId = str(old_snapid))
-        print 'New Snapshot created with ID', SnapshotId, 'at', strftime("%Y-%m-%d %H:%M:%S", gmtime()), ', 2 Snapshots now exists for the volume!!'
-        print 'Old Snapshot with ID', old_snapid, 'is deleted'
+        print 'New Snapshot created with ID', SnapshotId, 'at', strftime("%Y-%m-%d %H:%M:%S", gmtime())
+        print 'Oldest Snapshot with ID', old_snapid, 'is deleted'
 
 
 
