@@ -9,7 +9,7 @@ Various AWS automation scripts. Example - Taking snapshots of EBS
 <br>"--snap_desc", help="Set description of the snapshot"</br>
 
 <b>Network_acl_block.py</b>
-<br>Blocks the IP address provided as the argument from VPC's Network-acl Inbound Rules.It also takes care of the rule number protocols to be followed.</br>
+<br>Blocks the IP address provided as the argument, from VPC's Network-acl Inbound Rules.It also takes care of the rule number protocols to be followed.</br>
 <br>#Parameters to be given --</br>
 <br>"--ip", help="IP to block"</br>
 <br>"--region_name", help="Region name of your EC2 instance"</br>
